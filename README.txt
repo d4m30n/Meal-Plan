@@ -2,7 +2,7 @@ This is specifily configered for finding the optimal solution of recipes that wi
 
 RUNNING
 
-  java -classpath jgap.jar:. Main <people.csv> <recipe.csv>
+  java -classpath jgap.jar:. Main <people.csv> <recipe.csv> <number of days>
 
 COMPILING
 

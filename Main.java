@@ -22,12 +22,13 @@ public class Main{
   //Public Methords
   
   public static void main(String[] args){
-    if(args.length != 2){help("Missing recipe file");return;}
+    if(args.length != 3){help("Missing some starting paramaters");return;}
     try{
+      int days = Integer.parseInt(args[2]);
       Menu.setMode();
       people = People.loadPeople(args[0]);
       Recipe.loadRecipes(args[1], people);
-      GA ga = new GA(12,new FitFunction(Recipe.recipes),500);
+      GA ga = new GA(days,new FitFunction(Recipe.recipes),500);
       Recipe[] best = ga.start();
 
       if(Menu.getMode() < 2){
