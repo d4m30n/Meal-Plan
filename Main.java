@@ -22,7 +22,7 @@ public class Main{
   //Public Methords
   
   public static void main(String[] args){
-    if(args.length != 3){help("Missing some starting paramaters");return;}
+    if(args.length != 3){help("Missing some starting paramaters\nMain <people.csv> <recipe.csv> <number of days>");}
     try{
       int days = Integer.parseInt(args[2]);
       Menu.setMode();
@@ -45,9 +45,10 @@ public class Main{
         System.out.println();
       }
     }
-    catch(FileNotFoundException e){e.printStackTrace();return;}
-    catch(IOException e){e.printStackTrace();return;}
-    catch(Exception e){e.printStackTrace();return;}
+    catch(FileNotFoundException e){help("The one of the CSV files dose not exist.");}
+    catch(IOException e){e.printStackTrace();}
+    catch(NumberFormatException e){help("The number of days must be an integer.");}
+    catch(Exception e){e.printStackTrace();}
   }
   
   //Private Methords
@@ -59,6 +60,9 @@ public class Main{
     System.out.println();
     if(error != null){System.out.println(error);}
     System.out.println("<recipe.csv>\tCSV of recipes with Title and ingrediants list.");
+    System.out.println("<people.csv>\tCSV of people with Name and disliked ingrediants.");
+    System.out.println("<number of days>\tThe number of days that you want meals for");
     System.out.println();
+    System.exit(1);
   }
 }
