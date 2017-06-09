@@ -1,4 +1,4 @@
-This is specifily configered for finding the optimal solution of recipes that will meet all the dislike requirements for a group of people
+This is specifily configered for finding the optimal solution of recipes that will attempt to meet the dislike requirements for a group of people
 
 RUNNING
 
