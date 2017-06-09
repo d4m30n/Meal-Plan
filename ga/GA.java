@@ -7,6 +7,7 @@ import org.jgap.Chromosome;
 import org.jgap.Configuration;
 import org.jgap.DeltaFitnessEvaluator;
 import org.jgap.InvalidConfigurationException;
+import org.jgap.BaseGeneticOperator;
 import org.jgap.impl.IntegerGene;
 import org.jgap.impl.SwappingMutationOperator;
 import org.jgap.impl.CrossoverOperator;
@@ -63,11 +64,14 @@ public class GA{
     
     //clears the default operator
     gaConf.getGeneticOperators().clear();
-    SwappingMutationOperator swapper = new SwappingMutationOperator(gaConf);
-    CrossoverOperator crossOver = new CrossoverOperator(gaConf);
-    AveragingCrossoverOperator ACO = new AveragingCrossoverOperator(gaConf);
-    //adds a swapper operator so on mutations genes are swaped
-    gaConf.addGeneticOperator(ACO);
+    BaseGeneticOperator option = null;
+    switch(Menu.getMutation()){
+      case 0: option = new SwappingMutationOperator(gaConf);break;
+      case 1: option = new CrossoverOperator(gaConf);break;
+      case 2: option = new AveragingCrossoverOperator(gaConf);break;
+      default: throw new InvalidConfigurationException("Program Not Setup");
+    }
+    gaConf.addGeneticOperator(option);
     
     //keep the fittest value found
     gaConf.setPreservFittestIndividual(true);
