@@ -1,4 +1,4 @@
-This is specifily configered for finding the optimal solution of recipes that will attempt to meet the dislike requirements for a group of people
+This project is designed to try and find an optimal solution for a set of recipes for a cirtian number of days, that will meet the least amount of dislikes for a group of people.
 
 RUNNING
 
